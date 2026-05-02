@@ -1,0 +1,12 @@
+#!/bin/sh
+
+ACTION="${1}"
+
+case "${ACTION}" in
+  "error")
+    if [ "${EXIT_ON_ERROR}" = "TRUE" ]; then
+      echo "Backup failed, exiting container..."
+      kill -s TERM 1
+    fi
+  ;;
+esac

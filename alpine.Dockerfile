@@ -35,7 +35,8 @@ ENV POSTGRES_DB="**None**" \
     WEBHOOK_ERROR_URL="**None**" \
     WEBHOOK_PRE_BACKUP_URL="**None**" \
     WEBHOOK_POST_BACKUP_URL="**None**" \
-    WEBHOOK_EXTRA_ARGS=""
+    WEBHOOK_EXTRA_ARGS="" \
+    EXIT_ON_ERROR="FALSE"
 
 COPY hooks /hooks
 COPY backup.sh env.sh init.sh /

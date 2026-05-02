@@ -101,6 +101,7 @@ Most variables are the same as in the [official postgres image](https://hub.dock
 | WEBHOOK_PRE_BACKUP_URL | URL to be called when backup starts. Default disabled. |
 | WEBHOOK_POST_BACKUP_URL | URL to be called when backup completes successfully. Default disabled. |
 | WEBHOOK_EXTRA_ARGS | Extra arguments for the `curl` execution in the webhook (check `hooks/00-webhook` file for more info). |
+| EXIT_ON_ERROR | If set to `TRUE` the container will exit when a backup fails. Defaults to `FALSE`. |
 
 #### Special Environment Variables
 
@@ -148,6 +149,8 @@ The folder `hooks` inside the container can contain hooks/scripts to be run in d
 Just create an script in that folder with execution permission so that [run-parts](https://manpages.debian.org/stable/debianutils/run-parts.8.en.html) can execute it on each state change.
 
 Please, as an example take a look in the script already present there that implements the `WEBHOOK_URL` functionality.
+
+The `error-exit-container` hook is provided to exit the container when a backup fails. Enable it by setting `EXIT_ON_ERROR=TRUE`.
 
 ### Manual Backups
 
